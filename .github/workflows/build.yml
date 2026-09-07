@@ -22,12 +22,12 @@ jobs:
         python -m pip install --upgrade pip
         pip install customtkinter moviepy openai-whisper google-generativeai requests numpy pyinstaller
 
-    - name: Build EXE with PyInstaller
+    - name: Build Single EXE with PyInstaller
       run: |
-        pyinstaller --noconfirm --onedir --windowed --name "AutoCut_AI_Suite" app.py
+        pyinstaller --noconfirm --onefile --windowed --name "AutoCut_AI_Suite" app.py
 
     - name: Upload Executable Artifact
       uses: actions/upload-artifact@v4
       with:
         name: AutoCut_AI_Suite_Windows
-        path: dist/AutoCut_AI_Suite/
+        path: dist/AutoCut_AI_Suite.exe
