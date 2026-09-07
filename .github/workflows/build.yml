@@ -20,14 +20,14 @@ jobs:
     - name: Install Dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install customtkinter moviepy openai-whisper google-generativeai requests numpy pyinstaller
+        pip install customtkinter moviepy imageio imageio-ffmpeg openai-whisper google-generativeai requests numpy pyinstaller
 
-    - name: Build Single EXE with PyInstaller
+    - name: Build Executable with PyInstaller
       run: |
-        pyinstaller --noconfirm --onefile --windowed --name "AutoCut_AI_Suite" app.py
+        pyinstaller --noconfirm --onedir --windowed --copy-metadata imageio --copy-metadata imageio_ffmpeg --name "AutoCut_AI_Suite" app.py
 
     - name: Upload Executable Artifact
       uses: actions/upload-artifact@v4
       with:
         name: AutoCut_AI_Suite_Windows
-        path: dist/AutoCut_AI_Suite.exe
+        path: dist/AutoCut_AI_Suite/
