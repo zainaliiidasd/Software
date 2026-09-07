@@ -4,6 +4,20 @@ import json
 import threading
 import requests
 from pathlib import Path
+
+# Explicitly import imageio before moviepy to prevent metadata exception
+import imageio
+import imageio_ffmpeg
+
+import customtkinter as ctk
+import tkinter as tk
+from tkinter import filedialog, messagebox
+import os
+import sys
+import json
+import threading
+import requests
+from pathlib import Path
 import customtkinter as ctk
 import tkinter as tk
 from tkinter import filedialog, messagebox
